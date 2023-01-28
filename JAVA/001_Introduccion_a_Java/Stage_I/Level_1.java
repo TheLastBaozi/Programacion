@@ -5,7 +5,7 @@ import java.util.Scanner;
  * <h1>Hola Mundo!!! </h1>
  * Realiza un programa que pregunte al usuario por su nombre, y muestre por pantalla “Buenos dias [nombre]”
  */
-public class Level_1_001 {
+public class Level_1 {
     public static void main(String[] args) {
 
         //Declare the variable
