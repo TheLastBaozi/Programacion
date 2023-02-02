@@ -98,7 +98,7 @@ public class Tienda {
                                 
                 D/d --> Gestionar Artículos
                 E/e --> Facturas
-                                
+                
                 Otra opción : Salir
                                 
                 --------------------------
