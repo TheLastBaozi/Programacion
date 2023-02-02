@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -10,7 +11,7 @@ public class SubArray {
             System.out.print("Tell me how many number do you want in the vector ( > 0 ):");
             toCheck = input.nextLine();
             if (!isAnInteger(toCheck)) System.out.println("Not a valid number... please repeat");
-        } while (!isAnInteger(toCheck) || Integer.parseInt(toCheck) <=0);
+        } while (!isAnInteger(toCheck) || Integer.parseInt(toCheck) <= 0);
 
         int[] numbaList = new int[Integer.parseInt(toCheck)];
         System.out.println("Vector Successfully created");
@@ -26,26 +27,44 @@ public class SubArray {
         } while (!isAnInteger(toCheck));
         int toSearch = Integer.parseInt(toCheck);
 
+        for (int position :
+                numbaList) {
+            System.out.print(position + " ,");
+        }
+        System.out.println();
 
-        // We want to traverse the entire Array
-        // Queremos recorrer el Array por completo
+        ArrayList<int[]> indexedSubArray = new ArrayList<>();
+
         for (int listPosition = 0; listPosition < numbaList.length; listPosition++) {
-            // Temporally stored numbers
-            int temporal = 0;
-            // In reverse to position
-            for (int lastPosition = numbaList.length; lastPosition > listPosition; lastPosition--) {
 
-                for (int position = listPosition; position < lastPosition; position++) {
-                    // FIXME: COMPLETE HERE
+            for (int lastSubArrayPosition = listPosition; lastSubArrayPosition < numbaList.length; lastSubArrayPosition++) {
+                int temporal = 0;
+
+                for (int position = listPosition; position < lastSubArrayPosition; position++) {
                     temporal += numbaList[position];
+
                     if (temporal == toSearch) {
-                        // FIXME: System Print here
-                        // Suggestion : FOR if u don't want store it in a String
+                        boolean notPrinted = true;
+                        for (int[] subIndexed :
+                                indexedSubArray) {
+                            if (listPosition == subIndexed[0] && position == subIndexed[1]) {
+                                notPrinted = false;
+                                break;
+                            }
+                        }
+                        if (notPrinted) {
+                            indexedSubArray.add(new int[]{listPosition, position});
+                            System.out.print("List number : ");
+                            for (int printPosition = listPosition; printPosition <= position; printPosition++) {
+                                System.out.print(numbaList[printPosition] + " ");
+                            }
+                            System.out.println();
+                        }
+
                     }
                 }
             }
         }
-
 
 
     }
