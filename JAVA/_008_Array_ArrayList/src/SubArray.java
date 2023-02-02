@@ -37,7 +37,7 @@ public class SubArray {
 
                 for (int position = listPosition; position < lastPosition; position++) {
                     // FIXME: COMPLETE HERE
-
+                    temporal += numbaList[position];
                     if (temporal == toSearch) {
                         // FIXME: System Print here
                         // Suggestion : FOR if u don't want store it in a String
