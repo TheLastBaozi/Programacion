@@ -1,5 +1,7 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -81,7 +83,6 @@ public class SubArray {
                             System.out.println();
                             notOccurrence = false;
                         }
-
                     }
                 }
             }
@@ -90,6 +91,45 @@ public class SubArray {
         // Better than nothing... user can know if there is not SubArray
         if (notOccurrence) System.out.println(" No SubArray founded");
 
+        // Extra: Search the smaller SubArray and the largest SubArray
+        int[] smaller = new int[]{indexedSubArray.get(0)[0], indexedSubArray.get(0)[1]};
+        int[] largest = new int[]{indexedSubArray.get(0)[0], indexedSubArray.get(0)[1]};
+
+        // Find the smaller and largest subArray distance
+        for (int[] subArray : indexedSubArray) {
+            if (smaller[1]-smaller[0]>subArray[1]-subArray[0]){
+                smaller[0] = subArray[0];
+                smaller[1] = subArray[1];
+            }
+            if (largest[1]-largest[0]<subArray[1]-subArray[0]){
+                largest[0] = subArray[0];
+                largest[1] = subArray[1];
+            }
+        }
+
+
+        ArrayList<ArrayList> indexedInArrayList = new ArrayList<>();
+        for (int position = 0; position < indexedSubArray.size(); position++) {
+            indexedInArrayList.get(position).add(indexedSubArray.get(position)[0]);
+            indexedInArrayList.get(position).add(indexedSubArray.get(position)[1]);
+        }
+//        for (int position = 0; position < indexedInArrayList.size(); position++) {
+//            Iterator subArrayIT = indexedInArrayList.get(position).iterator();
+//            if (smaller[1]-smaller[0]>subArrayIT-subArrayIT.next());
+//        }
+
+        // Print the Smaller and largest SubArray
+        System.out.println("Smaller SubArray : ");
+        for (int position = smaller[0]; position <= smaller[1]; position++) {
+            System.out.print(numbaList[position] + " ");
+        }
+        System.out.println();
+
+        System.out.println("Largest SubArray : ");
+        for (int position = largest[0]; position <= largest[1]; position++) {
+            System.out.print(numbaList[position] + " ");
+        }
+        System.out.println();
 
     }
 
