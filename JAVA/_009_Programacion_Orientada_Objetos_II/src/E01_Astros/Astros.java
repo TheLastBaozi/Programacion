@@ -113,8 +113,7 @@ public class Astros {
         System.out.println("Gravedad : "+getGravedad());
     }
 
-    @Override
-    public String toString() {
+    public String mostrar() {
         return "Astros{" +
                 "radioEcuatorial=" + radioEcuatorial +
                 ", rotacionSobreSuEJE=" + rotacionSobreSuEJE +
