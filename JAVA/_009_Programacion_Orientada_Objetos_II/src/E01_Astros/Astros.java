@@ -24,7 +24,7 @@ package E01_Astros;
  *  </ul>
  * <p>
  *  Define un método, que dado un objeto del sistema solar (planeta o satélite),
- *  imprimatoda la información que se dispone sobre el mismo (además de su lista de satélites si lostuviera).
+ *  imprima toda la información que se dispone sobre el mismo (además de su lista de satélites si los tuviera).
  * <p>
  * <p>
  *  Una posible solución sería crear una lista de objetos, insertar los planetas y satélites
@@ -48,17 +48,61 @@ public class Astros {
         this.gravedad = gravedad;
     }
 
+    // Getter and setters
 
-    public void mostrarRadioEcuatorial() {
+    public double getRadioEcuatorial() {
         return radioEcuatorial;
     }
 
-    public void mostrarRotacionSobreSuEJE() {
+    public void setRadioEcuatorial(double radioEcuatorial) {
+        this.radioEcuatorial = radioEcuatorial;
+    }
+
+    public double getRotacionSobreSuEJE() {
         return rotacionSobreSuEJE;
     }
 
-    public void mostrarMasa() {
+    public void setRotacionSobreSuEJE(double rotacionSobreSuEJE) {
+        this.rotacionSobreSuEJE = rotacionSobreSuEJE;
+    }
+
+    public double getMasa() {
         return masa;
+    }
+
+    public void setMasa(double masa) {
+        this.masa = masa;
+    }
+
+    public double getTemperaturaMedia() {
+        return temperaturaMedia;
+    }
+
+    public void setTemperaturaMedia(double temperaturaMedia) {
+        this.temperaturaMedia = temperaturaMedia;
+    }
+
+    public double getGravedad() {
+        return gravedad;
+    }
+
+    public void setGravedad(double gravedad) {
+        this.gravedad = gravedad;
+    }
+
+
+    // Mostrar datos
+
+    public void mostrarRadioEcuatorial() {
+        System.out.println("Radio Ecuatorial : "+getRadioEcuatorial());
+    }
+
+    public void mostrarRotacionSobreSuEJE() {
+        System.out.println("Rotacion Sobre su Eje : "+getRotacionSobreSuEJE());
+    }
+
+    public void mostrarMasa() {
+        System.out.println("Masa : "+getMasa());
     }
 
     public void mostrarTemperaturaMedia() {
@@ -66,7 +110,7 @@ public class Astros {
     }
 
     public void mostrarGravedad() {
-        return gravedad;
+        System.out.println("Gravedad : "+getGravedad());
     }
 
     @Override
