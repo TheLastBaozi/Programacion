@@ -32,6 +32,7 @@ package E01_Astros;
  *  y luego mostrar un pequeño menú que permita al usuario imprimir la información del astro que elija
  */
 public class Astros {
+    private String nombre; // Nombre del Astro? ;3
     private double radioEcuatorial; //Km
     private double rotacionSobreSuEJE; //rad/s
     private double masa; //Kg
@@ -40,7 +41,8 @@ public class Astros {
 
     private double gravedad; //m/s2 ( I am not physic... I don't know what variable to use ewe
 
-    public Astros(double radioEcuatorial, double rotacionSobreSuEJE, double masa, double temperaturaMedia, double gravedad) {
+    public Astros(String nombre, double radioEcuatorial, double rotacionSobreSuEJE, double masa, double temperaturaMedia, double gravedad) {
+        this.nombre = nombre;
         this.radioEcuatorial = radioEcuatorial;
         this.rotacionSobreSuEJE = rotacionSobreSuEJE;
         this.masa = masa;
@@ -49,6 +51,15 @@ public class Astros {
     }
 
     // Getter and setters
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public double getRadioEcuatorial() {
         return radioEcuatorial;

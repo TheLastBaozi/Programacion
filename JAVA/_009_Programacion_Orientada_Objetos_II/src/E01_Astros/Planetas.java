@@ -9,9 +9,9 @@ public class Planetas extends Astros{
 
     private ArrayList<Satelites> listaSatelites = new ArrayList<>();
 
-    public Planetas(double radioEcuatorial, double rotacionSobreSuEJE, double masa, double temperaturaMedia,
+    public Planetas(String nombre, double radioEcuatorial, double rotacionSobreSuEJE, double masa, double temperaturaMedia,
                     double gravedad, double distanciaAlSol, boolean tieneSatelites, ArrayList<Satelites> listaSatelites) {
-        super(radioEcuatorial, rotacionSobreSuEJE, masa, temperaturaMedia, gravedad);
+        super(nombre, radioEcuatorial, rotacionSobreSuEJE, masa, temperaturaMedia, gravedad);
         this.distanciaAlSol = distanciaAlSol;
         this.tieneSatelites = tieneSatelites;
         this.listaSatelites = listaSatelites;
@@ -43,6 +43,13 @@ public class Planetas extends Astros{
 
     @Override
     public String mostrar(){
+        String toReturn = String.format("Planeta { %s ,",super.mostrar().substring(8,super.mostrar().length()-2));
+        toReturn += " distancia al Sol="+distanciaAlSol+", "+(tieneSatelites?"sí":"no")+" tiene satelites";
+        if (tieneSatelites){
+            for (int position = 0; position < listaSatelites.size();position++){
 
+            }
+        }
+        return toReturn;
     }
 }
