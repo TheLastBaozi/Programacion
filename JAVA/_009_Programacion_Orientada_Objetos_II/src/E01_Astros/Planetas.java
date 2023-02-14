@@ -44,10 +44,11 @@ public class Planetas extends Astros{
     @Override
     public String mostrar(){
         String toReturn = String.format("Planeta { %s ,",super.mostrar().substring(8,super.mostrar().length()-2));
-        toReturn += " distancia al Sol="+distanciaAlSol+", "+(tieneSatelites?"sí":"no")+" tiene satelites";
+        toReturn += " distancia al Sol="+distanciaAlSol+", "+(tieneSatelites?"sí":"no")+" tiene satelites ";
         if (tieneSatelites){
-            for (int position = 0; position < listaSatelites.size();position++){
-
+            toReturn += "Satelites : ";
+            for (Satelites listaSatelite : listaSatelites) {
+                toReturn += listaSatelite.getNombre() + " ";
             }
         }
         return toReturn;
