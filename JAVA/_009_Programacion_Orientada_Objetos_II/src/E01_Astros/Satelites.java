@@ -1,6 +1,6 @@
 package E01_Astros;
 
-public class Satelites extends Astros{
+public class Satelites extends Astros {
     private double distanciaAlPlaneta;
 
     private double orbitaPlanetaria;
@@ -36,8 +36,8 @@ public class Satelites extends Astros{
 
     @Override
     public String mostrar() {
-        String toReturn = String.format("Satelite { %s ,",super.mostrar().substring(8,super.mostrar().length()-2));
-        toReturn+=", distancia al planeta = "+distanciaAlPlaneta+", orbitaPlanetaria ="+orbitaPlanetaria+", Pertenece al planeta = "+planetaPertenece;
-        return  toReturn;
+        String toReturn = String.format("Satelite { %s ,", super.mostrar().substring(8, super.mostrar().length() - 2));
+        toReturn += ", distancia al planeta = " + distanciaAlPlaneta + ", orbitaPlanetaria =" + orbitaPlanetaria + ", Pertenece al planeta = " + planetaPertenece;
+        return toReturn;
     }
 }
