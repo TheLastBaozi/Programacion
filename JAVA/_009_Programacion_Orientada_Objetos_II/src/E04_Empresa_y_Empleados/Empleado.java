@@ -37,7 +37,7 @@ public class Empleado {
         do {
             System.out.println("Dime el saldo bruto de " + nombre);
             toCheck = input.nextLine();
-        } while (!toCheck.matches("\\d+([.]\\d)?") || Double.parseDouble(toCheck) <= 0);
+        } while (!toCheck.matches("\\d+([.]\\d+)?") || Double.parseDouble(toCheck) <= 0);
 
         Empleado empleadoTemporal = new Empleado(nombre, dni, Double.parseDouble(toCheck));
 

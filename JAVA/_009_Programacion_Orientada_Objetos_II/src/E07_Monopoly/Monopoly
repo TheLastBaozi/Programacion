@@ -1,0 +1,49 @@
+En este ejercicio vamos a comenzar a desarrollar una especie de juego del Monopoly simplificado.
+
+
+Comenzaremos por la clase Casilla, la clase base para construir los distintos tipos deposiciones que tiene el tablero
+del monopoly.
+Estos objetos tienen un atributo nombre,de tipo String, que una vez que se pone en su contructor, ya no se podrá modificar
+y solo se puede acceder a su valor directamente desde la clase, tiene que estar encapsulado.
+
+Además tendrá un atributo código, de tipo entero, que numerará las casillas de forma consecutiva según se vayan creando,
+empezando desde el 1.
+
+Como clase hija de la clase Casilla, vamos a tener la clase Propiedad, para representar aquellas casillas que se pueden comprar.
+Tendrá nuevos atributos, precio, hipoteca ypropietario, todos ellos de tipo entero.
+Tendrá un constructor al que se le pase el nombre, el precio y la hipoteca, estableciendo sus valores, y donde el propietario seestablecerá al valor -1.
+Tanto el precio como la hipoteca son valores que una vezestablecidos no se podrán modificar y son accesibles directamente desde sus claseshijas.
+Propietario es privado, y crearemos un método público para obtener su valor.
+Esta clase Propiedad tendrá un método abstracto int getAlquiler(int modificacion),accesible desde cualquier clase del paquete.
+Como clase hija de Propiedad tendremos la clase Terreno, con nuevos atributos de losprecios de alquiler cuando se cae en la casilla de otro jugador,
+además del color de lacasilla.
+El color podrá ser un valor entre ROJO, AMARILLO y VERDE establecidos en la enumeración ColorTerreno.
+Para el precio del alquiler tendremos el atributoprecioAlquiler.
+
+Estos atributos estarán encapsulados y tendremos métodos paramodificar y acceder a sus valores.
+
+Crearemos un constructor para establecer todos losatributos de los objetos de esta clase.
+
+Aquí debemos calcular el precio del alquiler que se debe pagar, simplificandodevolveremos el precio del alquiler mas un suplemento debido al parámetromodificación,
+el suplemento se calcula multiplicando el precio por el modificador.
+Si elparámetro es mayor a 4 devolveremos el precio del alquiler por 10.
+Tendremos también una clase para representar a las Estaciones, hijas de Propiedad, queno tendrá atributos extras,
+pero sus valores de precio e hipoteca son fijos a un valorestablecido en una constante privada de la clase, VALOR_ESTACION,
+podemos ponerle elvalor que queramos.
+
+El constructor de esta clase únicamente necesita el nombre de laestación.
+
+El valor que devuelve por alquilarla es el precio de la propiedad dividido entreel parámetro modificacion.Ahora vamos con el Tablero,
+que contendrá como atributo privado una lista de Casillasque como ya sabemos son de diversos tipos.
+
+En un juego real en el constructor crearíatodas las casillas del tablero en orden, en este ejercicio en el constructor
+del tablero lorellenará con dos terrenos verdes, la estación "Norte", un terreno ROJO y la estación"Sur".
+Además tendremos los siguientes métodos mostrarTablero, que recorrerá las casillas del tablero y mostrará información decada una de sus casillas.
+Para ello cada clase debe proporcionar su informaciónrelevante y si está comprada o no.
+•listaTerrenos(int jugador) que recorrerá el tablero y devolverá un ArrayList de losterrenos del jugador que se la pasa como parámetro.
+
+Otras implementaciones:
+•Para futuras funcionalidades debemos implementar para comprobar cuando doscasillas son iguales.
+Son iguales cuando todos sus atributos tienen los mismosvalores.•Crearemos un interface, de nombre Comprable, con un sólo método, voidcomprar(int i).
+Que implementarán las clases que se pueden comprar, se les pasael número de jugador que la quiere comprar, si no está ocupada, modificará elpropietario de la casilla
+
