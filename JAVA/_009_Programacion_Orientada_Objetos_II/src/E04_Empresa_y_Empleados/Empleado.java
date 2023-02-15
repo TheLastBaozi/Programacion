@@ -140,7 +140,7 @@ public class Empleado {
 
         final String LETRAS = "TRWAGMYFPDXBNJZSQVHLCKE";
 
-        return possible.charAt(8) == LETRAS.charAt(Integer.parseInt(possible.substring(0, 8)) / 23);
+        return possible.charAt(8) == LETRAS.charAt(Integer.parseInt(possible.substring(0, 8)) % 23);
 
     }
 
