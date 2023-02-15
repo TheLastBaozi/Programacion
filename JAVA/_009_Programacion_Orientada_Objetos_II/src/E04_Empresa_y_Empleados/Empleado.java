@@ -11,13 +11,13 @@ public class Empleado {
     private String phoneNumber;
     private String direccion;
 
-    public Empleado(String nombre, String dni, double sueldoBruto) {
+    Empleado(String nombre, String dni, double sueldoBruto) {
         this.NOMBRE_EMPLEADO = nombre;
         this.DNI = dni;
         this.sueldoBruto = sueldoBruto;
     }
 
-    public static Empleado nuevoEmpleado() {
+    static Empleado nuevoEmpleado() {
         Scanner input = new Scanner(System.in);
         System.out.println("CONTRATACIÓN DE EMPLEADO");
         System.out.print("Dime el nombre del Empleado: ");
@@ -57,43 +57,46 @@ public class Empleado {
         } else
             return empleadoTemporal;
 
-
-        return null;
+        if (keepGoing()) {
+            System.out.println("Dime la dirección de " + nombre);
+            empleadoTemporal.setDireccion(input.nextLine());
+        }
+        return empleadoTemporal;
     }
 
-    public String getNOMBRE_EMPLEADO() {
+    String getNOMBRE_EMPLEADO() {
         return NOMBRE_EMPLEADO;
     }
 
-    public String getDNI() {
+    String getDNI() {
         return DNI;
     }
 
-    public double getSueldoBruto() {
+    double getSueldoBruto() {
         return sueldoBruto;
     }
 
-    public void setSueldoBruto(double sueldoBruto) {
+    void setSueldoBruto(double sueldoBruto) {
         this.sueldoBruto = sueldoBruto;
     }
 
-    public int getEdad() {
+    int getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    void setEdad(int edad) {
         this.edad = edad;
     }
 
-    public String getPhoneNumber() {
+    String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getDireccion() {
+    String getDireccion() {
         return direccion;
     }
 
@@ -101,7 +104,20 @@ public class Empleado {
         this.direccion = direccion;
     }
 
-    public void imprimir() {
+    double calcularSueldoNeto() {
+
+        double anualPayment = this.getSueldoBruto() * 12;
+
+        if (anualPayment < 12000){
+            return this.sueldoBruto*0.80;
+        } else if (anualPayment <=25000) {
+            return this.sueldoBruto*0.70;
+        }else {
+            return this.sueldoBruto*0.60;
+        }
+    }
+
+    void imprimir() {
         System.out.println("CONTRARO DE EMPLEADO" +
                 "\nNombre: " + NOMBRE_EMPLEADO +
                 "\nDNI: " + DNI +
