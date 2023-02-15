@@ -15,6 +15,9 @@ public class Empleado {
         this.NOMBRE_EMPLEADO = nombre;
         this.DNI = dni;
         this.sueldoBruto = sueldoBruto;
+        this.edad = 16;
+        this.phoneNumber="0";
+        this.direccion="Por proveer";
     }
 
     static Empleado nuevoEmpleado() {
@@ -117,11 +120,16 @@ public class Empleado {
         }
     }
 
-    void imprimir() {
-        System.out.println("CONTRARO DE EMPLEADO" +
-                "\nNombre: " + NOMBRE_EMPLEADO +
-                "\nDNI: " + DNI +
-                "\nSueldo Bruto: " + sueldoBruto);
+
+    public void imprimir() {
+        System.out.println("Empleado{" +
+                "NOMBRE_EMPLEADO='" + NOMBRE_EMPLEADO + '\'' +
+                ", DNI='" + DNI + '\'' +
+                ", sueldoBruto=" + sueldoBruto +
+                ", edad=" + edad +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", direccion='" + direccion + '\'' +
+                '}');
     }
 
     private static boolean checkDNI(String possible) {
